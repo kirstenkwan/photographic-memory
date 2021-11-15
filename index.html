@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Game | Photographic Memory</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/normalize_mod.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+    
+
+    <audio id="bkgd-audio" controls loop style="display: none">
+        <source src="./media/bkgrdmusic-village.mp3" type="audio/mp3" />
+    </audio>
+
+
+
+    <div class="site-wrapper">
+        
+        <header>
+            <button class="btn mute-btn" id="mute-btn" type="button"><img src="./images/music.svg" alt=""></button>
+            <button class="btn pause-btn" type="button"><img src="./images/settings.svg" alt=""></button>
+        </header>
+
+        <main>
+            <div class="game-wrapper">
+                <div id="bkgrd">
+                    <img id ="bkgrd-yin-yang-1" src="./images/cards_japan/yin-yang.svg" alt="">
+                    <img id ="bkgrd-yin-yang-2" src="./images/cards_japan/yin-yang.svg" alt="">
+                    <img id ="bkgrd-yin-yang-3" src="./images/cards_japan/yin-yang.svg" alt="">
+
+                    
+                    <img id ="bkgrd-daruma-1" src="./images/cards_japan/daruma.svg" alt="">
+                    <img id ="bkgrd-daruma-2" src="./images/cards_japan/daruma.svg" alt="">
+                    <img id ="bkgrd-daruma-3" src="./images/cards_japan/daruma.svg" alt="">
+                    <img id ="bkgrd-daruma-4" src="./images/cards_japan/daruma.svg" alt="">
+
+                    <img id ="bkgrd-ko-omote-1" src="./images/cards_japan/ko-omote.svg" alt="">
+                    <img id ="bkgrd-ko-omote-2" src="./images/cards_japan/ko-omote.svg" alt="">
+                    <img id ="bkgrd-ko-omote-3" src="./images/cards_japan/ko-omote.svg" alt="">
+                    <img id ="bkgrd-ko-omote-4" src="./images/cards_japan/ko-omote.svg" alt="">
+                    <img id ="bkgrd-ko-omote-5" src="./images/cards_japan/ko-omote.svg" alt="">
+
+                    <img id ="bkgrd-gourd-1" src="./images/cards_japan/gourd.svg" alt="">
+                    <img id ="bkgrd-gourd-2" src="./images/cards_japan/gourd.svg" alt="">
+                    <img id ="bkgrd-gourd-3" src="./images/cards_japan/gourd.svg" alt="">
+                    <img id ="bkgrd-gourd-4" src="./images/cards_japan/gourd.svg" alt="">
+                    <img id ="bkgrd-gourd-5" src="./images/cards_japan/gourd.svg" alt="">
+                    <img id ="bkgrd-gourd-6" src="./images/cards_japan/gourd.svg" alt="">
+
+                    <img id ="bkgrd-hannya-1" src="./images/cards_japan/hannya.svg" alt="">
+                    <img id ="bkgrd-hannya-2" src="./images/cards_japan/hannya.svg" alt="">
+                    <img id ="bkgrd-hannya-3" src="./images/cards_japan/hannya.svg" alt="">
+                    <img id ="bkgrd-hannya-4" src="./images/cards_japan/hannya.svg" alt="">
+                    <img id ="bkgrd-hannya-5" src="./images/cards_japan/hannya.svg" alt="">
+                    <img id ="bkgrd-hannya-6" src="./images/cards_japan/hannya.svg" alt="">
+
+                    <img id ="bkgrd-onigiri-1" src="./images/cards_japan/onigiri.svg" alt="">
+                    <img id ="bkgrd-onigiri-2" src="./images/cards_japan/onigiri.svg" alt="">
+                    <img id ="bkgrd-onigiri-3" src="./images/cards_japan/onigiri.svg" alt="">
+                    
+                    <img id ="bkgrd-lantern-1" src="./images/cards_japan/lantern.svg" alt="">
+
+                    <img id ="bkgrd-lantern-2" src="./images/cards_japan/lantern.svg" alt="">
+                </div>
+
+                <div id="splash-screen" class="splash-screen screen">
+                        <h1>Photographic Memory</h1>
+
+                        <div class="btn-group">
+                            <button class="btn splash-btn start-btn" type="button">Start</span></button>
+                            <button class="btn splash-btn instruction-btn">Instruction</button>
+                        </div>
+                    
+                </div>
+
+                <div id="setting-menu" class="setting-menu dialogue">
+                    <div class="dialogue-content">
+                        <h2>Pause</h2>
+                        <div class="help-group">
+                            <button class="btn ctrl-btn help-btn" type="button"><img src="./images/question.svg" alt=""></button>
+                        </div>
+                        <div class="btn-group">
+                                <button class="btn ctrl-btn resume-btn" type="button"><img src="./images/play-button.svg" alt=""></button>
+
+                                <button class="btn ctrl-btn restart-btn" type="button"><img src="./images/refresh.svg" alt=""> </button>
+
+                                <button class="btn ctrl-btn home-btn" type="button"><img src="./images/home.svg" alt=""></button> 
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div id="player-num-screen" class="player-num-screen screen setup">
+                    <h2>Select number of players</h2>
+
+                    <div class="btn-group">
+                        <button class="btn player-num-btn 1p-btn" type="button">1 Player</button>
+                        <button class="btn player-num-btn 2p-btn" type="button">2 Players</button>
+                        <button class="btn player-num-btn 3p-btn" type="button">3 Players</button>
+                        <button class="btn player-num-btn 4p-btn" type="button">4 Players</button>
+                    </div>
+                </div>
+
+                <div class="name-prompt dialogue">
+                    <div class="dialogue-content name-prompt-content">
+                        <h2>Enter Your User Name</h2>
+
+                        <div>
+                            <div class="name-input">
+                                <label class="player-num-label" for="userName">P1</label>
+                            <input type="text" id="userName" name="userName" maxlength="15" value="Player1">
+                            </div>
+                            
+                        
+                        
+                            <div>
+                            <button type="button" id="submit-userName">OK</button> 
+                            </div>
+                        </div>
+                        
+                    </div>
+                         
+                </div>
+
+                <div id="mode-screen" class="mode-screen screen setup">
+                    <h2>Select Mode</h2>
+
+                    <div class="btn-group">
+                        <button class="btn mode-btn standard-btn" type="button">Standard</button>
+                        <button class="btn mode-btn time-mode-btn" type="button">Time Mode</button>
+                    </div>
+                </div>
+
+                <div id="level-screen" class="level-screen screen setup">
+                    <h2>Select Levels</h2>
+
+                    <div class="btn-group">
+                        <button class="btn level-btn easy-btn" type="button">Easy</button>
+                        <button class="btn level-btn medium-btn" type="button">Medium</button>
+                        <button class="btn level-btn hard-btn" type="button">Hard</button>
+                    </div>
+                </div>
+
+                <div id="ready-screen" class="ready-screen screen setup">
+                    <h2>Ready?</h2>
+
+                    <div class="btn-group">
+                        <button class="btn ready-btn play-btn" type="button">Play</button>
+                    </div>
+                    
+                </div>
+               
+
+                <div id="instruction" class="instruction screen dialogue">
+                    <div class="dialogue-content">
+                        <h2>Instruction</h2>
+                        <div>
+                            <p class="highlight">Select two cards each turn and score points by selecting matching pair of cards! </p>
+                            <p><span class="highlight">Standard Mode: </span>No time limitation. In multiplayer mode, turns will be switched when not matching cards are selected.</p>
+                            <p><span class="highlight">Time Mode: </span>Limited Time. Turns will be switched when time is up.</p>
+                        </div>
+                        
+                        <button class="btn close-help-btn" type="button">Ok</button>
+
+                    </div>
+                </div>
+
+                <div id="game-screen" class="game-screen screen">
+                    <div id ="scoreboard" class="scoreboard">
+                        <h2>Score</h2>
+                        <div id="turn-indicator"></div>
+                    </div>
+        
+                    <div class="gameboard">
+
+                        <div id="timer-display">
+                            <div id="time-bar">
+                                <div class="bar" id="base-bar"></div>
+                                <div class="bar" id="progress-bar"></div>
+                            </div>
+
+                            <div id="timer">
+                                <h3>
+                                    <div id="min">--</div>:<div id="sec">--</div>:<div id="tenth">-</div>
+                                </h3>   
+                            </div>
+                        </div>
+
+                        <div id="cards"></div>
+        
+                    </div>
+
+                    <div id="switch-title">
+                        <div>
+                            <h3>- Switch -</h3>
+                            <h2 id="switch-username"></h2>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div id="gameover-screen" class="gameover-screen screen">
+                    <div class="gameover-content">
+                        <h2 id="gameover-title"></h2>
+                        <div id="result">
+                            <div id="result-stars"></div>
+                            <div id="result-rank"></div>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn gameover-btn again-btn" type="button"><img src="./images/refresh.svg" alt=""> </button>
+                            <button class="btn gameover-btn quit-btn" type="button"><img src="./images/home.svg" alt=""></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            
+
+        </main>
+        
+
+        <footer>
+            <p>&copy;Kirsten Kwan 2021.</p>
+        </footer>
+
+    </div>
+
+    <script src="./scripts/script.js"></script>
+</body>
+
+</html>
